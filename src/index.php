@@ -4,6 +4,8 @@ declare(strict_types=1);
 require __DIR__ . '/../vendor/autoload.php';
 use Acme\Domain\Product;
 use Acme\Domain\Catalog;
+use Acme\Domain\Delivery\DeliveryCalculator;
+use Acme\Domain\Delivery\DeliveryRule;
 
 $products = [
     new Product('R01', 'Red Widget',   32.95),
@@ -21,4 +23,13 @@ try {
 } catch (\InvalidArgumentException $e) {
     echo $e->getMessage() . PHP_EOL;
 }
+
+$rules = [
+    new DeliveryRule(5000, 495), // if total < $50, shipping = $4.95
+    new DeliveryRule(9000, 295), // if total < $90, shipping = $2.95
+];
+
+$delivery = new DeliveryCalculator($rules);
+echo "Delivery cost: " . $delivery->shippingCostCents(4999) . PHP_EOL;
+
 
