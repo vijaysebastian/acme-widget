@@ -3,7 +3,7 @@
         'name' => 'acme-widget/widget-widget',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'f4791cad485c73452c425638d4e0fcebef63ac9f',
+        'reference' => 'a83f94f0100f813fa430a17542aa0a9646feb3c9',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'acme-widget/widget-widget' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'f4791cad485c73452c425638d4e0fcebef63ac9f',
+            'reference' => 'a83f94f0100f813fa430a17542aa0a9646feb3c9',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

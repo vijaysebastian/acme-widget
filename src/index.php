@@ -15,30 +15,19 @@ $products = [
 ];
 
 $catalog = new Catalog($products);
-$code = 'G01';
-try {
-    $product = $catalog->getProductByCode($code);
-    echo "Product Code: " . $product->getCode() . PHP_EOL;
-    echo "Product Name: " . $product->getName() . PHP_EOL;
-    echo "Product Price (cents): " . $product->getPriceCents() . PHP_EOL;
-} catch (\InvalidArgumentException $e) {
-    echo $e->getMessage() . PHP_EOL;
+$offers = [
+    new BuyOneGetHalf('R01'),
+];
+$deliveryRules = [
+    new DeliveryRule(5000, 495),
+    new DeliveryRule(9000, 295),
+];
+$deliveryCalculator = new DeliveryCalculator($deliveryRules);
+$cart = new Acme\Domain\Cart($catalog, $deliveryCalculator, $offers);
+$argv = $_SERVER['argv'] ?? [];
+array_shift($argv);
+foreach ($argv as $productCode) {
+    $cart->add($productCode);
 }
-
-$rules = [
-    new DeliveryRule(5000, 495), // if total < $50, shipping = $4.95
-    new DeliveryRule(9000, 295), // if total < $90, shipping = $2.95
-];
-
-$delivery = new DeliveryCalculator($rules);
-echo "Delivery cost: " . $delivery->shippingCostCents(4999) . PHP_EOL;
-
-
-$cartItems = [
-    new Product('R01', 'Red Widget',   32.95),
-    new Product('R01', 'Red Widget',   32.95),
-];
-
-$offer = new BuyOneGetHalf('R01');
-$discount = $offer->discountInCents($cartItems);
-echo "Discount from offer: " . $discount . PHP_EOL;
+$total = $cart->total();
+echo "Total: " . number_format($total, 2) . PHP_EOL;

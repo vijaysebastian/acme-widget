@@ -13,5 +13,4 @@ services:
     depends_on:
       - composer
     build: .
-    entrypoint: ["php"]
-    command: ["src/index.php"]
+    entrypoint: ["php", "src/index.php"]
