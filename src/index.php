@@ -6,6 +6,7 @@ use Acme\Domain\Product;
 use Acme\Domain\Catalog;
 use Acme\Domain\Delivery\DeliveryCalculator;
 use Acme\Domain\Delivery\DeliveryRule;
+use Acme\Domain\Offer\BuyOneGetHalf;
 
 $products = [
     new Product('R01', 'Red Widget',   32.95),
@@ -33,3 +34,11 @@ $delivery = new DeliveryCalculator($rules);
 echo "Delivery cost: " . $delivery->shippingCostCents(4999) . PHP_EOL;
 
 
+$cartItems = [
+    new Product('R01', 'Red Widget',   32.95),
+    new Product('R01', 'Red Widget',   32.95),
+];
+
+$offer = new BuyOneGetHalf('R01');
+$discount = $offer->discountInCents($cartItems);
+echo "Discount from offer: " . $discount . PHP_EOL;
