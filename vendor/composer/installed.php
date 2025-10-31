@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'acme-widget/widget-widget',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '93d3c297cab3c5dac536cd6e88a5b99bdde3ed76',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'acme-widget/widget-widget' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '93d3c297cab3c5dac536cd6e88a5b99bdde3ed76',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
