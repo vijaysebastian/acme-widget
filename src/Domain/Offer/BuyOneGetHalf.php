@@ -27,6 +27,6 @@ final class BuyOneGetHalf implements OfferInterface
         }
 
         $eligiblePairs = intdiv($targetProductCount, 2);
-        return (int) ($eligiblePairs * ($targetProductPriceCents / 2));
+        return (int) round($eligiblePairs * ($targetProductPriceCents / 2));
     }
 }
