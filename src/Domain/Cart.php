@@ -3,12 +3,16 @@ declare(strict_types=1);
 namespace Acme\Domain;
 use Acme\Domain\Catalog;
 use Acme\Domain\Delivery\DeliveryCalculator;
+use Acme\Domain\Offer\OfferInterface;
 
 final class Cart
 {
+    /** @var Product[] */
     private array $items = [];
 
-    /* @param OfferInterface[] $offers */
+    /**
+     * @param OfferInterface[] $offers
+     */
     public function __construct(
         private readonly Catalog $catalog,
         private readonly DeliveryCalculator $deliveryCalculator,
@@ -18,9 +22,15 @@ final class Cart
     public function add(string $productCode): void
     {
         $product = $this->catalog->getProductByCode($productCode);
+        if (!$product) {
+            throw new \InvalidArgumentException("Product with code '$productCode' does not exist in catalog.");
+        }
         $this->items[] = $product;
     }
 
+    /**
+     * @return Product[]
+     */
     public function items(): array
     {
         return $this->items;

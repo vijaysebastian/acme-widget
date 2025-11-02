@@ -25,6 +25,9 @@ final class CartTest extends TestCase
         return new Acme\Domain\Cart($catalog, $delivery, $offers);
     }
 
+    /**
+     * @return array<array{0: string[], 1: float}>
+     */
     public static function items(): array
     {
         return [
@@ -37,7 +40,7 @@ final class CartTest extends TestCase
 
     /**
      * @dataProvider items
-     * @param array $productCodes
+     * @param string[] $productCodes
      */
     public function testCart(array $productCodes, float $expectedTotal): void
     {

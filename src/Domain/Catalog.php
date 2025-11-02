@@ -1,7 +1,6 @@
 <?php
 declare(strict_types=1);
 namespace Acme\Domain;
-use _PHPStan_b22655c3f\Nette\Neon\Exception;
 use Acme\Domain\Product;
 final class Catalog
 {
