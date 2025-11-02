@@ -1,7 +1,6 @@
 <?php
 declare(strict_types=1);
 namespace Acme\Domain\Offer;
-use Acme\Domain\Product;
 
 final class BuyOneGetHalf implements OfferInterface
 {
@@ -9,7 +8,7 @@ final class BuyOneGetHalf implements OfferInterface
         private readonly string $productCode
     ) {}
 
-    /** $params Product[] $cartItems */
+    /** @params Product[] $cartItems */
     public function discountInCents(array $cartItems): int
     {
         $targetProductCount = 0;

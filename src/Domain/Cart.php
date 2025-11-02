@@ -1,7 +1,6 @@
 <?php
 declare(strict_types=1);
 namespace Acme\Domain;
-use Acme\Domain\Catalog;
 use Acme\Domain\Delivery\DeliveryCalculator;
 use Acme\Domain\Offer\OfferInterface;
 
